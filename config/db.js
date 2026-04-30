@@ -10,6 +10,6 @@ const connectDB = async () => {
   }
 };
 
-//mongodb+srv://emmanueltolatoye_db_user:i9sxtUWOJRitR5pm@cluster0.ncm910o.mongodb.net/
+
 
 module.exports = connectDB;
