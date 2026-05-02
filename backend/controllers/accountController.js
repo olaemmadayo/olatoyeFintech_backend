@@ -1,4 +1,4 @@
-const Account = require('../models/Account');
+const Account = require('../models/account');
 const Customer = require('../models/customer');
 const { validateBvn, validateNin, createAccountNo } = require('../services/nibssService');
 const asyncHandler = require('../utils/asyncHandler');
