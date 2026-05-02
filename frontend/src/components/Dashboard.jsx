@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import api from '../config/api';
 
 const Dashboard = () => {
   const [account, setAccount] = useState(null);
@@ -10,10 +10,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAccount = async () => {
       try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get('/api/account/me', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        const response = await api.get('/account/me');
         setAccount(response.data.account);
         setBalance(response.data.account.balance);
       } catch (err) {

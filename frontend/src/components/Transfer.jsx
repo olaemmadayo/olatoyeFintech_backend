@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../config/api';
 
 const Transfer = () => {
   const [formData, setFormData] = useState({
@@ -20,11 +20,8 @@ const Transfer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post('/api/transaction/initiate', {
+      const response = await api.post('/transaction/initiate', {
         ...formData
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
       });
 
       setMessage('Transfer initiated successfully!');

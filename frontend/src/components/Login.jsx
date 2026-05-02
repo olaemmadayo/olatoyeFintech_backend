@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../config/api';
 
 const Login = () => {
   const [accountNumber, setAccountNumber] = useState('');
@@ -21,7 +21,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('/api/account/login', { accountNumber, password });
+      const response = await api.post('/account/login', { accountNumber, password });
       localStorage.setItem('token', response.data.token);
       showToast('Login successful', 'success');
       setTimeout(() => navigate('/'), 800);

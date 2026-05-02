@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../config/api';
 
 const History = () => {
   const [transactions, setTransactions] = useState([]);
@@ -10,9 +10,7 @@ const History = () => {
     const fetchHistory = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('/api/transaction/history', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        const response = await api.get('/transaction/history');
         setTransactions(response.data.transactions);
       } catch (err) {
         navigate('/login');
