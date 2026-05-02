@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const Account = require("../models/Account");
+const Account = require("../models/account");
 const Fintech = require("../models/fintech");
 const asyncHandler = require("../utils/asyncHandler");
 
