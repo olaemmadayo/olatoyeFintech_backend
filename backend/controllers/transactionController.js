@@ -1,4 +1,4 @@
-const Transaction = require("../models/Transaction");
+const Transaction = require("../models/transaction");
 const Account = require("../models/account");
 const asyncHandler = require("../utils/asyncHandler");
 const { nameEnquiry, transferFunds, getTransactionStatus } = require("../services/nibssService");
