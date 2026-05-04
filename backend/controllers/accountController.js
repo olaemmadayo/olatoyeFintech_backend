@@ -105,6 +105,7 @@ exports.createAccount = asyncHandler(async (req, res) => {
 //login user account 
 exports.loginAccount = asyncHandler(async (req, res) => {
   const { accountNumber, password } = req.body;
+  console.log("Incoming login:", req.body);
 
   const account = await Account.findOne({ accountNumber }).populate('customer');
 
